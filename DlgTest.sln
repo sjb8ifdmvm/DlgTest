@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DlgTest", "DlgTest\DlgTest.vcxproj", "{53A5CC7D-9705-4F0B-90EA-2C9B72122F8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53A5CC7D-9705-4F0B-90EA-2C9B72122F8D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53A5CC7D-9705-4F0B-90EA-2C9B72122F8D}.Debug|Win32.Build.0 = Debug|Win32
+		{53A5CC7D-9705-4F0B-90EA-2C9B72122F8D}.Release|Win32.ActiveCfg = Release|Win32
+		{53A5CC7D-9705-4F0B-90EA-2C9B72122F8D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB54E52F-C9B9-4B28-8E7A-5A5E96DA0B9D}
+	EndGlobalSection
+EndGlobal
