@@ -60,6 +60,29 @@ BOOL CDlgTestApp::InitInstance()
 	// (例如，公司名稱或組織名稱)
 	SetRegistryKey(_T("本機 AppWizard 所產生的應用程式"));
 
+	HANDLE m_hMutex = ::CreateMutex(NULL, FALSE, _T("{42830D12-C55C-49A6-AEEA-B6B2F68B784F}"));
+	if (GetLastError() == ERROR_ALREADY_EXISTS) {
+		HWND hWnd = ::FindWindow(_T("#32770"), _T("登入"));
+		if (hWnd != NULL) {
+			AfxMessageBox(_T("程序運行中"));
+			::ShowWindow(hWnd, SW_NORMAL);
+			::SetForegroundWindow(hWnd);
+			CloseHandle(&m_hMutex);
+			m_hMutex = NULL;
+			return FALSE;
+		}
+		else if ((hWnd = ::FindWindow(L"#32770", L"DlgTest")) != NULL)
+		{
+			AfxMessageBox(_T("程序運行中"));
+			::ShowWindow(hWnd, SW_NORMAL);
+			::SetForegroundWindow(hWnd);
+			CloseHandle(&m_hMutex);
+			m_hMutex = NULL;
+			return FALSE;
+		}
+	}
+
+
 	////////////////////////////////
 	///////Lesson1 START
 	////////////////////////////////
@@ -67,6 +90,11 @@ BOOL CDlgTestApp::InitInstance()
 	INT_PTR iRet = loginDlg.DoModal();
 	if (iRet == IDCANCEL)
 	{
+		if (m_hMutex) {
+			CloseHandle(&m_hMutex);
+			m_hMutex = NULL;
+		}
+
 		return FALSE;
 	}
 	////////////////////////////////
@@ -87,6 +115,10 @@ BOOL CDlgTestApp::InitInstance()
 		// 處理的程式碼
 	}
 
+	if (m_hMutex) {
+		CloseHandle(&m_hMutex);
+		m_hMutex = NULL;
+	}
 	// 因為已經關閉對話方塊，傳回 FALSE，所以我們會結束應用程式，
 	// 而非提示開始應用程式的訊息。
 	return FALSE;
