@@ -50,4 +50,5 @@ public:
 	//Lesson2 END
 	/////////////////////////////////////////////
 	afx_msg void OnBnClickedEnumwindowButton();
+	afx_msg void OnDestroy();
 };

@@ -30,3 +30,9 @@ public:
 };
 
 extern CDlgTestApp theApp;
+
+//¤èªk¤G
+//SetProp + EnumWindows
+extern TCHAR g_szPropName[];
+extern HANDLE g_hValue;
+BOOL CALLBACK EnumWndProc(HWND hwnd, LPARAM lParam);
