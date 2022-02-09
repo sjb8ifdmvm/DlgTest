@@ -4,6 +4,8 @@
 
 #pragma once
 
+extern HWND hPreWnd;
+
 #ifndef __AFXWIN_H__
 	#error "對 PCH 包含此檔案前先包含 'stdafx.h'"
 #endif
@@ -30,9 +32,3 @@ public:
 };
 
 extern CDlgTestApp theApp;
-
-//方法二
-//SetProp + EnumWindows
-extern TCHAR g_szPropName[];
-extern HANDLE g_hValue;
-BOOL CALLBACK EnumWndProc(HWND hwnd, LPARAM lParam);

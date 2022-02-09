@@ -111,19 +111,6 @@ BOOL CDlgTestDlg::OnInitDialog()
 
 	// TODO: 在此加入額外的初始設定
 
-	//方法二
-	//SetProp + EnumWindows
-	HWND hPreWnd = NULL;
-	::EnumWindows(EnumWndProc, (LPARAM)&hPreWnd);
-	if (hPreWnd != NULL) {
-		AfxMessageBox(_T("程序運行中"));
-		::ShowWindow(hPreWnd, SW_NORMAL);
-		::SetForegroundWindow(hPreWnd);
-		ExitProcess(0);
-		return FALSE;
-	}
-	::SetProp(m_hWnd, g_szPropName, g_hValue);
-
 	return TRUE;  // 傳回 TRUE，除非您對控制項設定焦點
 }
 
@@ -322,7 +309,4 @@ void CDlgTestDlg::OnDestroy()
 
 	// TODO: 在此加入您的訊息處理常式程式碼
 
-	//方法二
-	//SetProp + EnumWindows
-	::RemoveProp(m_hWnd, g_szPropName);
 }

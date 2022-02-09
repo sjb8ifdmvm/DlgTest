@@ -66,18 +66,17 @@ BOOL CLoginDlg::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// TODO:  在此加入額外的初始化
-	//方法二
-	//SetProp + EnumWindows
-	HWND hPreWnd = NULL;
-	::EnumWindows(EnumWndProc, (LPARAM)&hPreWnd);
-	if (hPreWnd != NULL) {
+
+	if (hPreWnd == NULL) {
+		hPreWnd = m_hWnd;
+	}
+	else {
 		AfxMessageBox(_T("程序運行中"));
 		::ShowWindow(hPreWnd, SW_NORMAL);
 		::SetForegroundWindow(hPreWnd);
 		ExitProcess(0);
 		return FALSE;
 	}
-	::SetProp(m_hWnd, g_szPropName, g_hValue);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
@@ -89,8 +88,4 @@ void CLoginDlg::OnDestroy()
 	CDialog::OnDestroy();
 
 	// TODO: 在此加入您的訊息處理常式程式碼
-
-	//方法二
-	//SetProp + EnumWindows
-	::RemoveProp(m_hWnd, g_szPropName);
 }
