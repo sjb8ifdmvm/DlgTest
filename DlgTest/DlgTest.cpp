@@ -11,10 +11,10 @@
 #define new DEBUG_NEW
 #endif
 
-#pragma data_seg("Shared")
+#pragma data_seg("84B13C57DFC64BED92AEF0E58E714D65")
 HWND hPreWnd = NULL;
 #pragma data_seg()
-#pragma comment(linker, "/Section:Shared,RWS")
+#pragma comment(linker, "/Section:84B13C57DFC64BED92AEF0E58E714D65,RWS")
 
 // CDlgTestApp
 
